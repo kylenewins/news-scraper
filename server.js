@@ -78,9 +78,10 @@ app.get("/articles/:subreddit", function(req, res) {
 });
 
 // Route for grabbing a specific Article by id, populate it with it's note
-app.get("/articles/:id", function(req, res) {
+app.get("/articles/:subreddit/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-  db.Article.findOne({ _id: req.params.id })
+
+  db.Article.findOne({ subreddit: req.params.subreddit, _id: req.params.id })
     // ..and populate all of the notes associated with it
     .populate("note")
     .then(function(dbArticle) {

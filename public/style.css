@@ -28,3 +28,9 @@ textarea {
   height: 200px;
   font-size: 18px;
 }
+.title{
+    font-weight: bold;;
+}
+.link{
+    color: red
+}

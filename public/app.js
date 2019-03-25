@@ -10,7 +10,9 @@ $(document).ready(function(){
     }).then(function(){
       $.getJSON(("/articles/" + subreddit), function(data) {
         for (var i = 0; i < data.length; i++) {
-          $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+          $("#articles").append("<p class = 'title' data-id='" + data[i]._id + "' data-subreddit='" + subreddit + "'>" + data[i].title + "</p>" + "<br>" 
+          + "<p class = 'link'>" + data[i].link + "</p>"
+          + "<br><p>-------------------</p>");
         }
       })
     })
@@ -23,10 +25,11 @@ $(document).ready(function(){
     $(document).on("click", "p", function() {
       $("#notes").empty();
       var thisId = $(this).attr("data-id");
+      var subreddit = $(this).attr("data-subreddit")
     
       $.ajax({
         method: "GET",
-        url: "/articles/" + thisId
+        url: "/articles/" + subreddit + "/" + thisId
       })
         .then(function(data) {
           console.log(data);
