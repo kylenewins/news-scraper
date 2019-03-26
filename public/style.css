@@ -1,19 +1,28 @@
-body { background-color: #F2F6D0 }
-#wrapper {
-  width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 5%;
-}
+body { background-color: #F2F6D0 } 
+@keyframes color-fade {
+    0% {background-color: steelblue;}
+    50% {background-color: turquoise;}
+    100% {background-color: steelblue;}
+  }
+
+
 #articles {
   display: inline-block;
   overflow: auto;
   width: 60%;
   height: 700px;
 }
+.jumbotron{
+    animation-name: color-fade;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
 #notes {
   float: right;
   width: 30%;
+}
+.btn-primary{
+    margin:10px;
 }
 textarea, input {
   display: block;
@@ -34,3 +43,4 @@ textarea {
 .link{
     color: red
 }
+
