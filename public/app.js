@@ -16,13 +16,13 @@ $(document).ready(function(){
           var linkString = data[i].link
           //if the link starts with "/r/ it won't work as an href, so we have to add the base of the url"
           if(linkString.startsWith("/r/")){
-            var redditString = "https://www.old.reddit.com"
+            var redditString = "https://old.reddit.com"
             linkString = redditString.concat(linkString)
             // console.log(linkString)
           }
           //adds the text and the link for each article directly to the #articles div
           $("#articles").append("<p class = 'title' data-id='" + data[i]._id + "' data-subreddit='" + subreddit + "'>" + data[i].title + "</p>" + "<br>" 
-          + "<a class = 'link' href='" + linkString + "'>" + data[i].link + "</a>"
+          + "<a class = 'link' target='_blank' href='" + linkString + "'>" + data[i].link + "</a>"
           + "<br><p>-------------------</p>");
         }
       })
